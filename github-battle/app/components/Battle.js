@@ -1,6 +1,7 @@
 import React from 'react';
 import Instructions from './Instructions';
 import PlayerInput from './PlayerInput';
+import PlayerPreview from './PlayerPreview';
 
 export default class Battle extends React.Component {
   state = {
@@ -18,27 +19,46 @@ export default class Battle extends React.Component {
       [id]: username,
     });
 
+  /**
+   * Handles reset
+   * @param {string} id Player Id
+   */
+  handleReset = id =>
+    this.setState({
+      [id]: null,
+    });
+
   render = () => {
     const { playerOne, playerTwo } = this.state;
 
     return (
       <React.Fragment>
         <Instructions />
-
         <div className="players-container">
           <h1 className="center-text header-lg">Players</h1>
           <div className="row space-around">
-            {playerOne === null && (
+            {playerOne === null ? (
               <PlayerInput
                 label="Player One"
-                onSubmit={username => this.handleSubmit('playerOne', username)}
+                onSubmit={player => this.handleSubmit('playerOne', player)}
+              />
+            ) : (
+              <PlayerPreview
+                username={playerOne}
+                label="Player One"
+                onReset={() => this.handleReset('playerOne')}
               />
             )}
-
-            {playerTwo === null && (
+            {playerTwo === null ? (
               <PlayerInput
                 label="Player Two"
-                onSubmit={username => this.handleSubmit('playerTwo', username)}
+                onSubmit={player => this.handleSubmit('playerTwo', player)}
+              />
+            ) : (
+              <PlayerPreview
+                username={playerTwo}
+                label="Player Two"
+                onReset={() => this.handleReset('playerTwo')}
               />
             )}
           </div>

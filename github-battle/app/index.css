@@ -196,7 +196,8 @@ li {
   letter-spacing: 0.25em;
   max-width: 200px;
   padding: 10px;
-  text-decoration: uppercase;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .dark-btn {
@@ -211,4 +212,22 @@ li {
 
 .players-container {
   margin: 100px 0;
+}
+
+.avatar-small {
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+}
+
+.player-info {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.player-info .link {
+  margin-left: 10px;
 }
