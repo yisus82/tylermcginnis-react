@@ -15,4 +15,17 @@ const fetchPopularRepos = async language => {
   return data.items;
 };
 
-export { fetchPopularRepos };
+/**
+ * Checks if a user exists
+ * @param {string} username Github username
+ */
+const checkUserExists = async username => {
+  const endpoint = window.encodeURI(
+    `https://api.github.com/search/users?q=user:${username}`
+  );
+
+  const res = await fetch(endpoint);
+  return res.ok;
+};
+
+export { fetchPopularRepos, checkUserExists };

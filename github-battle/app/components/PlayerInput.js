@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { checkUserExists } from '../utils/api';
 
 class PlayerInput extends Component {
   state = {
     username: '',
+    error: null,
   };
 
   /**
@@ -12,7 +14,14 @@ class PlayerInput extends Component {
    */
   handleSubmit = event => {
     event.preventDefault();
-    this.props.onSubmit(this.state.username);
+    const { username } = this.state;
+    checkUserExists(username).then(exists => {
+      if (exists) {
+        this.props.onSubmit(username);
+      } else {
+        this.setState({ error: `Username ${username} does not exist.` });
+      }
+    });
   };
 
   /**
@@ -49,6 +58,7 @@ class PlayerInput extends Component {
             Submit
           </button>
         </div>
+        {this.state.error && <p className="error">{this.state.error}</p>}
       </form>
     );
   }
