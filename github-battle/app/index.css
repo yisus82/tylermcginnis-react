@@ -114,3 +114,33 @@ li {
 .repo img {
   margin-bottom: 8px;
 }
+
+.header-sm {
+  font-size: 28px;
+  font-weight: 300;
+  margin: 10px;
+}
+
+.instructions-container {
+  margin: 100px 0;
+}
+
+.container-sm {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.battle-instructions {
+  font-size: 25px;
+  padding: 0;
+}
+
+.battle-instructions li {
+  flex: 1;
+  min-width: 300px;
+}
+
+.battle-instructions svg {
+  border-radius: 3px;
+  padding: 40px;
+}
