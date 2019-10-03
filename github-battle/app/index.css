@@ -250,3 +250,24 @@ li {
   right: 0;
   text-align: center;
 }
+
+.hover-container {
+  display: flex;
+  position: relative;
+}
+
+.hover-tooltip {
+  background-color: hsla(0, 0%, 20%, 0.9);
+  box-sizing: border-box;
+  border-radius: 3px;
+  bottom: 100%;
+  color: #fff;
+  font-size: 14px;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -80px;
+  padding: 7px;
+  position: absolute;
+  text-align: center;
+  width: 160px;
+}
