@@ -237,11 +237,16 @@ li {
 }
 
 .error {
-  color: rgb(187, 46, 31);
-}
-
-error {
-  color: #ff1616;
+  color: rgb(255, 22, 22);
   font-size: 20px;
   margin: 50px 0;
+}
+
+.loading-text {
+  font-size: 35px;
+  left: 0;
+  margin-top: 20px;
+  position: absolute;
+  right: 0;
+  text-align: center;
 }

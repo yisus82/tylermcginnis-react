@@ -2,6 +2,7 @@ import React from 'react';
 import { fetchPopularRepos } from '../utils/api';
 import LanguagesNav from './LanguagesNav';
 import ReposGrid from './ReposGrid';
+import Loading from './Loading';
 
 export default class Popular extends React.Component {
   state = {
@@ -56,7 +57,7 @@ export default class Popular extends React.Component {
           selectedLanguage={selectedLanguage}
           onUpdateLanguage={this.updateLanguage}
         />
-        {this.isLoading() && <p>LOADING</p>}
+        {this.isLoading() && <Loading text="Fetching Repos" />}
         {error && <p className="center-text error">{error}</p>}
         {repos[selectedLanguage] && (
           <ReposGrid repos={repos[selectedLanguage]} />
