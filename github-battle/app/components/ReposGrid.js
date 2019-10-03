@@ -21,7 +21,7 @@ const ReposGrid = ({ repos }) => (
       const { login, avatar_url: avatarUrl } = owner;
 
       return (
-        <li key={htmlUrl} className="repo bg-light">
+        <li key={htmlUrl} className="card bg-light">
           <h4 className="header-lg center-text">#{index + 1}</h4>
           <img className="avatar" src={avatarUrl} alt={`Avatar for ${login}`} />
           <h2 className="center-text">
