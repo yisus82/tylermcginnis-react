@@ -7,6 +7,7 @@ export default class Results extends React.Component {
   static propTypes = {
     playerOne: PropTypes.string.isRequired,
     playerTwo: PropTypes.string.isRequired,
+    onReset: PropTypes.func.isRequired,
   };
 
   state = {
@@ -48,16 +49,25 @@ export default class Results extends React.Component {
     }
 
     return (
-      <div className="grid space-around container-sm">
-        <UserCard
-          label={winner.score === loser.score ? 'Tie' : 'Winner'}
-          player={winner}
-        />
-        <UserCard
-          label={winner.score === loser.score ? 'Tie' : 'Winner'}
-          player={loser}
-        />
-      </div>
+      <React.Fragment>
+        <div className="grid space-around container-sm">
+          <UserCard
+            label={winner.score === loser.score ? 'Tie' : 'Winner'}
+            player={winner}
+          />
+          <UserCard
+            label={winner.score === loser.score ? 'Tie' : 'Winner'}
+            player={loser}
+          />
+        </div>
+        <button
+          type="button"
+          onClick={this.props.onReset}
+          className="btn dark-btn btn-space"
+        >
+          Reset
+        </button>
+      </React.Fragment>
     );
   };
 }
