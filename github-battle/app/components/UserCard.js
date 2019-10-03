@@ -8,21 +8,16 @@ import {
   FaUserFriends,
   FaUser,
 } from 'react-icons/fa';
+import Card from './Card';
 
 const UserCard = ({ label, player }) => (
-  <div className="card bg-light">
-    <h4 className="header-lg center-text">{label}</h4>
-    <img
-      className="avatar"
-      src={player.profile.avatar_url}
-      alt={`Avatar for ${player.profile.login}`}
-    />
-    <h4 className="center-text">Score: {player.score.toLocaleString()}</h4>
-    <h2 className="center-text">
-      <a className="link" href={player.profile.html_url}>
-        {player.profile.login}
-      </a>
-    </h2>
+  <Card
+    header={label}
+    image={player.profile.avatar_url}
+    subheader={`Score: ${player.score.toLocaleString()}`}
+    link={player.profile.html_url}
+    text={player.profile.login}
+  >
     <ul className="card-list">
       <li>
         <FaUser color="rgb(239, 115, 115)" size={22} />
@@ -53,7 +48,7 @@ const UserCard = ({ label, player }) => (
         {player.profile.public_repos.toLocaleString()} repositories
       </li>
     </ul>
-  </div>
+  </Card>
 );
 
 UserCard.propTypes = {
