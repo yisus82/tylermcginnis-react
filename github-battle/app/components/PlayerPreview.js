@@ -9,7 +9,6 @@ const PlayerPreview = ({ username, onReset, label }) => (
       <div className="column player">
         <h3 className="player-label">{label}</h3>
         <div className={`row bg-${theme}`}>
-          >
           <div className="player-info">
             <img
               className="avatar-small"

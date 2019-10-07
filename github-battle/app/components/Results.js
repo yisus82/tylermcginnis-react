@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import queryString from 'qs';
 import { battle } from '../utils/api';
 import UserCard from './UserCard';
 import Loading from './Loading';
 
 export default class Results extends React.Component {
   static propTypes = {
-    playerOne: PropTypes.string.isRequired,
-    playerTwo: PropTypes.string.isRequired,
-    onReset: PropTypes.func.isRequired,
+    location: PropTypes.object.isRequired,
   };
 
   state = {
@@ -19,7 +19,11 @@ export default class Results extends React.Component {
   };
 
   componentDidMount = () => {
-    const { playerOne, playerTwo } = this.props;
+    const { playerOne, playerTwo } = queryString.parse(
+      this.props.location.search.slice(1)
+    );
+
+    console.log(playerOne, playerTwo);
 
     battle([playerOne, playerTwo])
       .then(players => {
@@ -61,13 +65,9 @@ export default class Results extends React.Component {
             player={loser}
           />
         </div>
-        <button
-          type="button"
-          onClick={this.props.onReset}
-          className="btn dark-btn btn-space"
-        >
+        <Link to="/battle" className="btn dark-btn btn-space">
           Reset
-        </button>
+        </Link>
       </React.Fragment>
     );
   };

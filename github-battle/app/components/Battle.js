@@ -1,14 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Instructions from './Instructions';
 import PlayerInput from './PlayerInput';
 import PlayerPreview from './PlayerPreview';
-import Results from './Results';
 
 export default class Battle extends React.Component {
   state = {
     playerOne: null,
     playerTwo: null,
-    battle: false,
   };
 
   /**
@@ -31,23 +30,7 @@ export default class Battle extends React.Component {
     });
 
   render = () => {
-    const { playerOne, playerTwo, battle } = this.state;
-
-    if (battle) {
-      return (
-        <Results
-          playerOne={playerOne}
-          playerTwo={playerTwo}
-          onReset={() =>
-            this.setState({
-              playerOne: null,
-              playerTwo: null,
-              battle: false,
-            })
-          }
-        />
-      );
-    }
+    const { playerOne, playerTwo } = this.state;
 
     return (
       <React.Fragment>
@@ -81,13 +64,16 @@ export default class Battle extends React.Component {
             )}
           </div>
           {playerOne && playerTwo && (
-            <button
+            <Link
               type="button"
               className="btn dark-btn btn-space"
-              onClick={() => this.setState({ battle: true })}
+              to={{
+                pathname: '/battle/results',
+                search: `?playerOne=${playerOne}&playerTwo=${playerTwo}`,
+              }}
             >
               Battle
-            </button>
+            </Link>
           )}
         </div>
       </React.Fragment>
