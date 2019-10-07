@@ -271,3 +271,29 @@ li {
   text-align: center;
   width: 160px;
 }
+
+.dark {
+  background: #1c2022;
+  color: #dadada;
+  min-height: 100%;
+}
+
+.bg-dark {
+  background: rgb(36, 40, 42);
+  border-radius: 3px;
+}
+
+.player-inputs .input-dark {
+  background: rgba(0, 0, 0, 0.3);
+  color: #dadada;
+}
+
+.light-btn {
+  background: #aaa8a8;
+  color: #000;
+}
+
+.light-btn:disabled {
+  background: #292929;
+  color: #4a4a4a;
+}
