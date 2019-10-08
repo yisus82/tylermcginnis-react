@@ -12,6 +12,7 @@
       {
         "regenerator": true
       }
-    ]
+    ],
+    "syntax-dynamic-import"
   ]
 }
